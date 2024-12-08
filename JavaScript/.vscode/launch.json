@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}\\leetcode\\207canFinish.js"
+      "program": "${workspaceFolder}\\leetcode\\22generateParenthesis.js"
     }
   ],
   "console": "integratedTerminal"
