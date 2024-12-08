@@ -1,1 +1,2 @@
-./JavaScript/.vscode
+# 忽略vscode运行文件
+/JavaScript/.vscode/
