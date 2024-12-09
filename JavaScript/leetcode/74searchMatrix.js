@@ -11,6 +11,8 @@ var searchMatrix = function (matrix, target) {
 
   const res1 = binarySearchArray(matrix, target);
   if (res1 === true) return true;
+  const res = binarySearch(matrix[res1], target);
+  return res;
 };
 
 const binarySearchArray = (array, target) => {
@@ -33,13 +35,13 @@ const binarySearch = (array, target) => {
   let j = array.length;
   while (i < j) {
     let mid = parseInt((i + j) / 2);
-    if (array[mid] === target) return mid;
     if (target < array[mid]) {
       j = mid;
-    }
-    if (array[mid] < target) {
+    } else if (array[mid] < target) {
       i = mid + 1;
+    } else {
+      return true;
     }
   }
-  return -1;
+  return false;
 };
