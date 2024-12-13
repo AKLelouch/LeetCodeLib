@@ -32,7 +32,7 @@ MinStack.prototype.pop = function () {
   } else if (this.minPos === this.stack.length) {
     // 找到最小数
     let newMinPos = 0;
-    for (let i = 1; i < this.stack.length - 1; i++) {
+    for (let i = 1; i < this.stack.length; i++) {
       if (this.stack[i] < this.stack[newMinPos]) newMinPos = i;
     }
     this.minPos = newMinPos;
