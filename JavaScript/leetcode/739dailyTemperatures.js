@@ -3,11 +3,7 @@
  * @return {number[]}
  */
 var dailyTemperatures = function (temperatures) {
-  // let singleStack = new SingleStack();
   let res = [];
-  for (let i = temperatures.length - 1; i >= 0; i--) {
-    // res.unshift(singleStack.push([temperatures[i], i]));
-  }
   let head = new LinkNode(0, 0, null);
   head.next = new LinkNode(
     temperatures[temperatures.length - 1],
@@ -48,27 +44,6 @@ var dailyTemperatures = function (temperatures) {
   return res;
 };
 
-class SingleStack {
-  stack = [];
-  constructor() {}
-
-  push(val) {
-    const [inputTemp, inputIndex] = val;
-    this.stack.push(val);
-    let min = Number.MAX_SAFE_INTEGER;
-    for (let i = this.stack.length - 2; i >= 0; i--) {
-      const [temp, index] = this.stack[i];
-      if (inputTemp < temp) {
-        this.stack[i + 1] = this.stack[i];
-        this.stack[i] = val;
-        min = Math.min(min, index - inputIndex);
-      } else if (inputTemp === temp) {
-      }
-    }
-    return min === Number.MAX_SAFE_INTEGER ? 0 : min;
-  }
-}
-
 class LinkNode {
   temperature = null;
   index = null;
@@ -80,4 +55,16 @@ class LinkNode {
     this.next = next;
   }
 }
-console.log(dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73]));
+
+var dailyTemperatures2 = function (temperatures) {
+  const n = temperatures.length;
+  let res = new Array(n).fill(0);
+  res[n - 1] = 0;
+  for (let i = n - 2; i >= 0; i--) {
+    let j = i + 1;
+    while (temperatures[j] <= temperatures[i] && res[j] !== 0) j += res[j];
+    if (temperatures[j] > temperatures[i]) res[i] = j - i;
+  }
+  return res;
+};
+console.log(dailyTemperatures2([34, 80, 80, 34, 34, 80, 80, 80, 80, 34]));
