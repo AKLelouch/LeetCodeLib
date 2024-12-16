@@ -26,6 +26,8 @@ class SingleStack {
         this.stack[i] = val;
         min = Math.min(min, index - inputIndex);
       }
+      else if(inputTemp === temp){
+      }
     }
     return min === Number.MAX_SAFE_INTEGER ? 0 : min;
   }
