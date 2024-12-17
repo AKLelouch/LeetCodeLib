@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "lint-staged",
     "prepare": "husky"
   },
   "author": "",
@@ -14,5 +14,12 @@
   "devDependencies": {
     "husky": "^9.1.7",
     "lint-staged": "^15.2.11"
+  },
+  "lint-staged": {
+    "src/**/*.{tsx,js}": [
+      "eslint --ext .tsx,.ts --fix ./src",
+      "prettier --write",
+      "git add"
+    ]
   }
 }
