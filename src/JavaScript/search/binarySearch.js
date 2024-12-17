@@ -2,10 +2,10 @@ const binarySearchRecursion = (array, head, tail, target) => {
   const mid = parseInt((tail + head) / 2);
   if (array[mid] === target) return mid;
   if (target < array[mid]) {
-    return binarySearch(array, head, mid, target);
+    return binarySearchRecursion(array, head, mid, target);
   }
   if (array[mid] < target) {
-    return binarySearch(array, mid + 1, tail, target);
+    return binarySearchRecursion(array, mid + 1, tail, target);
   }
 };
 
@@ -24,3 +24,5 @@ const binarySearchIterate = (array, target) => {
   }
   return -1;
 };
+
+export { binarySearchIterate, binarySearchRecursion };

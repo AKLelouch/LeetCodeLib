@@ -13,7 +13,6 @@ var numIslands = function (grid) {
   const dfs = (x, y) => {
     if (x < 0 || x >= height || y < 0 || y >= width) return;
 
-
     if (grid[x][y] === '2' || grid[x][y] === '0') {
       return;
     }
@@ -26,7 +25,7 @@ var numIslands = function (grid) {
     dfs(x + 1, y);
     dfs(x, y - 1);
     dfs(x, y + 1);
-  }
+  };
 
   while (true) {
     let position = null;
@@ -35,8 +34,8 @@ var numIslands = function (grid) {
         if (grid[i][j] === '1') {
           position = {
             x: i,
-            y: j
-          }
+            y: j,
+          };
           break;
         }
       }
@@ -46,9 +45,9 @@ var numIslands = function (grid) {
     if (position) {
       num++;
       dfs(position.x, position.y);
-    }
-    else
-      break;
+    } else break;
   }
   return num;
 };
+
+export { numIslands };

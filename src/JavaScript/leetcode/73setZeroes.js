@@ -11,19 +11,16 @@ var setZeroes = function (matrix) {
   for (let i = 0; i < m; i++) {
     let rowIsZero = false;
     for (let j = 0; j < n; j++) {
-
       if (matrix[i][j] === 0) {
         if (!rowIsZero) {
           for (let a = 0; a < n; a++) {
-            if (matrix[i][a] != 0)
-              matrix[i][a] = null;
+            if (matrix[i][a] != 0) matrix[i][a] = null;
           }
           rowIsZero = true;
         }
 
         for (let a = 0; a < m; a++) {
-          if (matrix[a][j] != 0)
-            matrix[a][j] = null;
+          if (matrix[a][j] != 0) matrix[a][j] = null;
         }
       }
     }
@@ -37,8 +34,11 @@ var setZeroes = function (matrix) {
     }
   }
 
-
   console.log(matrix);
 };
 
-setZeroes([[0, 1, 2, 0], [3, 4, 5, 2], [1, 3, 1, 5]])
+setZeroes([
+  [0, 1, 2, 0],
+  [3, 4, 5, 2],
+  [1, 3, 1, 5],
+]);

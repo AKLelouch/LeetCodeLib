@@ -19,7 +19,7 @@ var canFinish = function (numCourses, prerequisites) {
 
   let result = true;
   let flags = [];
-  const dfs = (key) => {
+  const dfs = key => {
     if (!result) return false;
     if (flags[key] === 1) return false;
     if (flags[key] === -1) return true;
@@ -28,7 +28,7 @@ var canFinish = function (numCourses, prerequisites) {
 
     flags[key] = 1;
     if (preCourses)
-      preCourses.forEach((course) => {
+      preCourses.forEach(course => {
         result = dfs(course);
       });
     flags[key] = -1;
@@ -40,3 +40,4 @@ var canFinish = function (numCourses, prerequisites) {
   });
   return result;
 };
+export { canFinish };

@@ -45,3 +45,5 @@ const binarySearch = (array, target) => {
   }
   return false;
 };
+
+export { searchMatrix };

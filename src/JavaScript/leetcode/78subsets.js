@@ -10,7 +10,7 @@ var subsets = function (nums) {
   let res = [];
 
   let path = [];
-  const dfs = (index) => {
+  const dfs = index => {
     if (index === nums.length) {
       res.push([...path]);
       return;
@@ -27,3 +27,5 @@ var subsets = function (nums) {
   dfs(0);
   return res;
 };
+
+export { subsets };

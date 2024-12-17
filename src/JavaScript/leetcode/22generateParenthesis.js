@@ -7,7 +7,6 @@ var generateParenthesis = function (n) {
   if (n === 1) return ['()'];
 
   let ans = [];
-  let path = '';
   const dfs = (res, left, right) => {
     if (left > n || right > left) return;
     if (right === n) {

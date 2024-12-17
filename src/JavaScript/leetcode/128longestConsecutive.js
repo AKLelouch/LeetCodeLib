@@ -7,17 +7,17 @@ var longestConsecutive = function (nums) {
 
   let longestArr = [];
   let minNum = Number.MAX_SAFE_INTEGER;
-  nums.map((value, key) => {
+  nums.map(value => {
     minNum = Math.min(value, minNum);
-  })
+  });
   let offset = 0 - minNum;
-  nums.map((value, key) => {
+  nums.map(value => {
     let curPos = value + offset;
     longestArr[curPos] = 1;
-  })
+  });
   for (let i = 0; i < longestArr.length; i++) {
     if (typeof longestArr[i] !== 'number') {
-      longestArr[i] = 0
+      longestArr[i] = 0;
     }
   }
   let count = longestArr[0];
@@ -68,7 +68,7 @@ var longestConsecutive1 = function (nums) {
     max = Math.max(step, max);
   });
   return max;
-}
+};
 
 var longestConsecutive2 = function (nums) {
   if (!nums.length) return 0;
@@ -88,10 +88,12 @@ var longestConsecutive2 = function (nums) {
     let curSteps = 1;
     while (startSet.has(curNum + 1)) {
       curSteps++;
-      curNum++
+      curNum++;
     }
     max = Math.max(max, curSteps);
   });
   return max;
-}
-console.log(longestConsecutive1([0, 1, 2, 4, 8, 5, 6, 7, 9, 3, 55, 88, 77, 99, 999999999]))
+};
+console.log(longestConsecutive1([0, 1, 2, 4, 8, 5, 6, 7, 9, 3, 55, 88, 77, 99, 999999999]));
+
+export { longestConsecutive, longestConsecutive2 };

@@ -1,5 +1,3 @@
-import { quickSort } from "../sort/quickSort.js";
-
 /**
  * @param {number[][]} intervals
  * @return {number[][]}
@@ -9,10 +7,11 @@ var merge = function (intervals) {
   if (intervals.length === 1) return intervals;
 
   // quickSort(intervals, 0, intervals.length - 1);
-  intervals.sort((a, b) => a[0] - b[0])
+  intervals.sort((a, b) => a[0] - b[0]);
 
   let res = [];
-  let start = 0, end = 0;
+  let start = 0,
+    end = 0;
   while (end < intervals.length) {
     res.push(intervals[start]);
     for (; end < intervals.length; ++end) {
@@ -27,4 +26,15 @@ var merge = function (intervals) {
   return res;
 };
 
-console.debug(merge([[1, 3], [0, 2], [2, 3], [4, 6], [4, 5], [5, 5], [0, 2], [3, 3]]))
+console.debug(
+  merge([
+    [1, 3],
+    [0, 2],
+    [2, 3],
+    [4, 6],
+    [4, 5],
+    [5, 5],
+    [0, 2],
+    [3, 3],
+  ]),
+);

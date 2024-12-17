@@ -5,7 +5,7 @@
 var rotate = function (matrix) {
   if (!matrix || !matrix.length) return;
 
-  const levelCount = Math.floor((matrix.length) / 2);
+  const levelCount = Math.floor(matrix.length / 2);
   let n = matrix.length - 1;
   for (let i = 0; i < levelCount; i++) {
     for (let j = i; j < n - i; j++) {
@@ -22,4 +22,8 @@ var rotate = function (matrix) {
   }
 };
 
-rotate([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
+rotate([
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+]);

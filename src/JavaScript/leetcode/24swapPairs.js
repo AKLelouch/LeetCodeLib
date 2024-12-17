@@ -1,7 +1,7 @@
 class ListNode {
   constructor(val, next) {
-    this.val = (val === undefined ? 0 : val);
-    this.next = (next === undefined ? null : next);
+    this.val = val === undefined ? 0 : val;
+    this.next = next === undefined ? null : next;
   }
 }
 
@@ -24,7 +24,6 @@ for (let i = 2; i <= 4; i++) {
  * @return {ListNode}
  */
 var swapPairs = function (head) {
-
   let p = head;
   let q = head && head.next ? head.next : null;
 
@@ -48,7 +47,6 @@ var swapPairs = function (head) {
       break;
     }
     p = p.next.next;
-
   }
   return h;
 };

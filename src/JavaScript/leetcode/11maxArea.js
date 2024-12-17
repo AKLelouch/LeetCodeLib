@@ -20,3 +20,5 @@ var maxArea = function (height) {
   }
   return maxAr;
 };
+
+export { maxArea };

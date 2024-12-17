@@ -16,7 +16,6 @@ var detectCycle = function (head) {
   let fast = head;
   let slow = head;
   while (true) {
-
     if (!fast) return null;
     if (!fast.next) return null;
     if (!fast.next.next) return null;
@@ -36,3 +35,4 @@ var detectCycle = function (head) {
   }
   return p;
 };
+export { detectCycle };

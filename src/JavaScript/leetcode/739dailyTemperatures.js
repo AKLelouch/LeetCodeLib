@@ -5,11 +5,7 @@
 var dailyTemperatures = function (temperatures) {
   let res = [];
   let head = new LinkNode(0, 0, null);
-  head.next = new LinkNode(
-    temperatures[temperatures.length - 1],
-    temperatures.length - 1,
-    null
-  );
+  head.next = new LinkNode(temperatures[temperatures.length - 1], temperatures.length - 1, null);
   res.unshift(0);
   for (let i = temperatures.length - 2; i >= 0; i--) {
     let prevNode = head;
@@ -67,4 +63,5 @@ var dailyTemperatures2 = function (temperatures) {
   }
   return res;
 };
+console.log(dailyTemperatures([34, 80, 80, 34, 34, 80, 80, 80, 80, 34]));
 console.log(dailyTemperatures2([34, 80, 80, 34, 34, 80, 80, 80, 80, 34]));
