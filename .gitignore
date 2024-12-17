@@ -1,2 +1,4 @@
 # 忽略vscode运行文件
 .vscode/
+node_modules/
+# package-lock.json
