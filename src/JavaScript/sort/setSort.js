@@ -1,23 +1,11 @@
 /**
- * @param {number[]} nums
- * @param {number} k
- * @return {number}
- */
-var findKthLargest = function (nums, k) {
-  const pq = new PQ(nums);
-  let res;
-  for (let i = 0; i < k; i++) res = pq.get();
-  return res;
-};
-
-/**
  * 优先队列
  */
 class PQ {
   pq = [0];
 
   constructor(nums) {
-    this.pq = this.pq.concat(nums);
+    this.pq.concat(nums);
     for (let i = Math.floor(this.pq.length / 2); i >= 1; i--) this.sink(i);
   }
 
@@ -58,6 +46,4 @@ class PQ {
   }
 }
 
-console.log(findKthLargest([3, 2, 1, 5, 6, 4], 2));
-
-export { findKthLargest };
+export { PQ };
