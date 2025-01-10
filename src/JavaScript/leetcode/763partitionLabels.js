@@ -4,7 +4,7 @@
  */
 var partitionLabels = function (s) {
   let curPos = 0;
-  let res = [[0, 0]];
+  let resRange = [[0, 0]];
   let postionMap = new Map();
   for (let i = 0; i < s.length; i++) {
     if (!postionMap.has(s[i])) {
@@ -16,16 +16,17 @@ var partitionLabels = function (s) {
     }
   }
   for (let i = 0; i < s.length; i++) {
-    let curRange = res[curPos];
+    let curRange = resRange[curPos];
     let curCharRange = postionMap.get(s[i]);
     if (curRange[0] <= curCharRange[0] && curRange[1] >= curCharRange[0]) curRange[1] = Math.max(curRange[1], curCharRange[1]);
     else {
-      res[curPos] = curRange;
+      resRange[curPos] = curRange;
       curPos++;
-      res[curPos] = [i, i];
+      resRange[curPos] = curCharRange;
     }
   }
-  return res;
+
+  return resRange.map(range => range[1] - range[0] + 1);
 };
 
 console.log(partitionLabels('ababcbacadefegdehijhklij'));
