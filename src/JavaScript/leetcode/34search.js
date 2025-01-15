@@ -7,10 +7,7 @@ var searchRange = function (nums, target) {
   if (!nums.length) return [-1, -1];
   if (target < nums[0] || target > nums[nums.length - 1]) return [-1, -1];
 
-  return [
-    binarySearchIterate(nums, target),
-    binarySearchIterate2(nums, target),
-  ];
+  return [binarySearchIterate(nums, target), binarySearchIterate2(nums, target)];
 };
 
 const binarySearchIterate = (array, target) => {

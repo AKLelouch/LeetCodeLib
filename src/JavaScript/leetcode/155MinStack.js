@@ -14,8 +14,7 @@ MinStack.prototype.push = function (val) {
   if (this.minPos === -1) {
     this.minPos = 0;
   } else {
-    this.minPos =
-      val < this.stack[this.minPos] ? this.stack.length - 1 : this.minPos;
+    this.minPos = val < this.stack[this.minPos] ? this.stack.length - 1 : this.minPos;
   }
 };
 

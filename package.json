@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "prepare": "husky",
-    "eslint": "lint-staged"
+    "prettier": "npx prettier . --write",
+    "eslint": "eslint --fix"
   },
   "author": "",
   "license": "ISC",
