@@ -27,4 +27,4 @@ const exchange = (nums, a, b) => {
   nums[b] = tmp;
 };
 
-// console.debug(quickSort(, 0, 3))
+console.debug(quickSort(3, 0, 3));
