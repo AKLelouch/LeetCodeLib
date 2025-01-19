@@ -22,4 +22,32 @@ var maxProduct = function (nums) {
   return res;
 };
 
+/**
+ * 优化版，滚动dp
+ * @param {number[]} nums
+ * @return {number}
+ */
+const maxProduct2 = function (nums) {
+  nums.unshift(0);
+  let dpMax = nums[1];
+  let dpMin = nums[1];
+  // dpMax = nums[1];
+  // dpMin[1] = nums[1];
+  let res = nums[1];
+  for (let i = 2; i < nums.length; i++) {
+    let current = nums[i];
+    // if (nums[i] < 0) {
+    let preDpMax = dpMax;
+    let preDpMin = dpMin;
+    dpMax = Math.max(preDpMin * current, preDpMax * current, current);
+    dpMin = Math.min(preDpMin * current, preDpMax * current, current);
+    // } else {
+    //   dpMax[i] = Math.max();
+    // }
+    res = Math.max(res, dpMax);
+  }
+  return res;
+};
+
 console.log(maxProduct([2, 3, -2, 4]));
+console.log(maxProduct2([2, 3, -2, 4]));
