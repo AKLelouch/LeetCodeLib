@@ -11,8 +11,8 @@ const partition = (nums, low, high) => {
   let i = low,
     j = high + 1;
   while (true) {
-    while (nums[++i][0] < nums[pivot][0]) if (i === high) break;
-    while (nums[--j][0] > nums[pivot][0]) if (j === low) break;
+    while (nums[++i] < nums[pivot]) if (i === high) break;
+    while (nums[--j] > nums[pivot]) if (j === low) break;
     if (i >= j) break;
     exchange(nums, i, j);
   }
@@ -27,4 +27,4 @@ const exchange = (nums, a, b) => {
   nums[b] = tmp;
 };
 
-console.debug(quickSort(3, 0, 3));
+console.debug(quickSort([34, 23, 45, 46, 6, 767], 0, 5));
