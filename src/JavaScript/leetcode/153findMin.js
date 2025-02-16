@@ -12,7 +12,7 @@ var findMin = function (nums) {
       // 最小值在右边
       i = mid + 1;
     } else if (nums[mid] < nums[j]) {
-      // 最小值在左边
+      // 最小值在左边或者就在j
       j = mid;
     }
   }
