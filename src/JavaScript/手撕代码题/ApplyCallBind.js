@@ -1,10 +1,7 @@
 Function.prototype.myApply = function (context, args) {
   if (typeof this !== 'function') return;
   const fnSymbol = Symbol('fnSymbol');
-  Object.defineProperty(context, fnSymbol, {
-    value: this,
-    writable: false,
-  });
+  context[fnSymbol] = this;
   const res = context[fnSymbol](...args);
   delete context[fnSymbol];
   return res;
@@ -13,10 +10,7 @@ Function.prototype.myApply = function (context, args) {
 Function.prototype.myCall = function (context, ...args) {
   if (typeof this !== 'function') return;
   const fnSymbol = Symbol('fnSymbol');
-  Object.defineProperty(context, fnSymbol, {
-    value: this,
-    writable: false,
-  });
+  context[fnSymbol] = this;
   const res = context[fnSymbol](...args);
   delete context[fnSymbol];
   return res;
