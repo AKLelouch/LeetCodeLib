@@ -97,6 +97,8 @@ class MyPromise {
   }
 
   static all(promises) {
+    // 只要有一个被拒绝，则直接返回被拒绝的新promise
+    // 当所有promise都被兑现，则返回被兑现的新promise
     const values = [];
     let resolvedCount = 0;
     return new MyPromise((resolve, reject) => {
