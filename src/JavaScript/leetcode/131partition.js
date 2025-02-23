@@ -3,37 +3,37 @@
  * @return {string[][]}
  */
 var partition = function (s) {
-  if (!s) return [];
-  let ans = [];
+  let res = [];
+  let path = [];
   const isHuiwen = str => {
     let i = 0;
     let j = str.length - 1;
     while (i < j) {
-      if (str[i] !== str[j]) return false;
-      i++;
-      j--;
+      if (str[i++] !== str[j--]) return false;
     }
     return true;
   };
 
-  let path = [];
-  const dfs = i => {
-    if (i >= s.length) return;
+  const dfs = function (index) {
+    if (index === s.length) {
+      res.push([...path]);
+      return;
+    }
 
-    for (let j = i; j < s.length; j++) {
-      let curStr = s.substring(i, j + 1);
-      if (!isHuiwen(curStr)) {
+    for (let i = index; i < s.length; i++) {
+      const subStr = s.substring(index, i + 1);
+      const flag = isHuiwen(subStr);
+      if (!flag) {
         continue;
       }
-      path.push(curStr);
-      if (j === s.length - 1) ans.push([...path]);
-      dfs(j + 1);
+      path.push(subStr);
+      dfs(i + 1);
       path.pop();
     }
   };
 
   dfs(0);
-  return ans;
+  return res;
 };
 
 partition('aab');
